@@ -1,0 +1,20 @@
+/*
+ * Copyright (c) 2025 Taha Deab
+ * Licensed under the LobeHub Community License.
+ * See LICENSE file for more information.
+ */
+import { BuiltinRenderProps, CrawlMultiPagesQuery, CrawlPluginState } from '@lobechat/types';
+import { memo } from 'react';
+
+import PageContent from './PageContent';
+
+const CrawlSinglePage = memo<BuiltinRenderProps<CrawlMultiPagesQuery, CrawlPluginState>>(
+  ({ messageId, pluginState = {}, args = {} }) => {
+    const { results } = pluginState;
+    const { urls } = args;
+
+    return <PageContent messageId={messageId} results={results} urls={urls} />;
+  },
+);
+
+export default CrawlSinglePage;

@@ -1,0 +1,37 @@
+/*
+ * Copyright (c) 2025 Taha Deab
+ * Licensed under the LobeHub Community License.
+ * See LICENSE file for more information.
+ */
+'use client';
+
+import { memo } from 'react';
+
+import { ChatItem } from '@/features/ChatList';
+
+/*
+ * Copyright (c) 2025 Taha Deab
+ * Licensed under the LobeHub Community License.
+ * See LICENSE file for more information.
+ */
+
+export interface ThreadChatItemProps {
+  id: string;
+  index: number;
+}
+
+const ThreadChatItem = memo<ThreadChatItemProps>(({ id, index }) => {
+  // For thread view, we don't need history divider
+  const enableHistoryDivider = false;
+
+  return (
+    <ChatItem
+      enableHistoryDivider={enableHistoryDivider}
+      id={id}
+      inPortalThread={true} // Mark this as thread context
+      index={index}
+    />
+  );
+});
+
+export default ThreadChatItem;

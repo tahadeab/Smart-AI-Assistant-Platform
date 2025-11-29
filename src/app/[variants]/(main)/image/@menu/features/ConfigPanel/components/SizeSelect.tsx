@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) 2025 Taha Deab
+ * Licensed under the LobeHub Community License.
+ * See LICENSE file for more information.
+ */
+import { memo } from 'react';
+
+import { useGenerationConfigParam } from '@/store/image/slices/generationConfig/hooks';
+
+import Select from '../../../components/SizeSelect';
+
+const SizeSelect = memo(() => {
+  const { value, setValue, enumValues } = useGenerationConfigParam('size');
+  const options = enumValues!.map((size) => ({
+    label: size,
+    value: size,
+  }));
+
+  return <Select onChange={setValue} options={options} value={value} />;
+});
+
+export default SizeSelect;

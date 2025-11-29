@@ -1,0 +1,2 @@
+*.{png,jpg,jpeg,mp4,webm,zip,psd,bin} filter=lfs diff=lfs merge=lfs -text
+*.png filter=lfs diff=lfs merge=lfs -text

@@ -1,0 +1,26 @@
+/*
+ * Copyright (c) 2025 Taha Deab
+ * Licensed under the LobeHub Community License.
+ * See LICENSE file for more information.
+ */
+import { Text } from '@lobehub/ui';
+import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { Flexbox } from 'react-layout-kit';
+
+import ArtifactList from './ArtifactList';
+
+export const Artifacts = memo(() => {
+  const { t } = useTranslation('portal');
+
+  return (
+    <Flexbox gap={8}>
+      <Text as={'h5'} style={{ marginInline: 12 }}>
+        {t('Plugins')}
+      </Text>
+      <ArtifactList />
+    </Flexbox>
+  );
+});
+
+export default Artifacts;

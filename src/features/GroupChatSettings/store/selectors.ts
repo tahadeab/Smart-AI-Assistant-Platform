@@ -1,0 +1,18 @@
+/*
+ * Copyright (c) 2025 Taha Deab
+ * Licensed under the LobeHub Community License.
+ * See LICENSE file for more information.
+ */
+import { DEFAULT_CHAT_GROUP_CHAT_CONFIG, DEFAULT_CHAT_GROUP_META_CONFIG } from '@/const/settings';
+import { merge } from '@/utils/merge';
+
+import { State } from './initialState';
+
+const currentChatConfig = (s: State) => merge(DEFAULT_CHAT_GROUP_CHAT_CONFIG, s.config);
+
+const currentMetaConfig = (s: State) => merge(DEFAULT_CHAT_GROUP_META_CONFIG, s.meta);
+
+export const selectors = {
+  currentChatConfig,
+  currentMetaConfig,
+};

@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) 2025 Taha Deab
+ * Licensed under the LobeHub Community License.
+ * See LICENSE file for more information.
+ */
+import { initTRPC } from '@trpc/server';
+import debug from 'debug';
+import superjson from 'superjson';
+
+import { AsyncContext } from './context';
+
+const log = debug('lobe-async:init');
+
+log('Initializing async tRPC with context and superjson transformer');
+
+export const asyncTrpc = initTRPC.context<AsyncContext>().create({
+  errorFormatter({ shape }) {
+    log('tRPC error formatter called: %O', shape);
+    return shape;
+  },
+  transformer: superjson,
+});
+
+log('Async tRPC initialized successfully');

@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) 2025 Taha Deab
+ * Licensed under the LobeHub Community License.
+ * See LICENSE file for more information.
+ */
+'use client';
+
+import { BuiltinPlaceholderProps } from '@lobechat/types';
+import { memo } from 'react';
+
+import LoadingCard from '../Render/PageContent/Loading';
+
+/*
+ * Copyright (c) 2025 Taha Deab
+ * Licensed under the LobeHub Community License.
+ * See LICENSE file for more information.
+ */
+
+const CrawlSinglePage = memo<BuiltinPlaceholderProps<{ url: string }>>(({ args }) => {
+  return <LoadingCard url={args?.url || ''} />;
+});
+
+export default CrawlSinglePage;

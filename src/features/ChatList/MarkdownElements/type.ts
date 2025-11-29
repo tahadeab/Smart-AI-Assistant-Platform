@@ -1,0 +1,26 @@
+/*
+ * Copyright (c) 2025 Taha Deab
+ * Licensed under the LobeHub Community License.
+ * See LICENSE file for more information.
+ */
+import { FC, ReactNode } from 'react';
+
+export interface MarkdownElementProps<T = any> {
+  children: ReactNode;
+  id: string;
+  node: {
+    properties: T;
+  };
+  tagName: string;
+  type: string;
+}
+
+export type MarkdownPluginScope = 'user' | 'assistant' | 'all';
+
+export interface MarkdownElement {
+  Component: FC<MarkdownElementProps>;
+  rehypePlugin?: any;
+  remarkPlugin?: any;
+  scope: MarkdownPluginScope;
+  tag: string;
+}

@@ -1,0 +1,44 @@
+/*
+ * Copyright (c) 2025 Taha Deab
+ * Licensed under the LobeHub Community License.
+ * See LICENSE file for more information.
+ */
+'use client';
+
+import { ChatHeader } from '@lobehub/ui/mobile';
+import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { Flexbox } from 'react-layout-kit';
+import { useNavigate } from 'react-router-dom';
+
+import { mobileHeaderSticky } from '@/styles/mobileHeader';
+
+/*
+ * Copyright (c) 2025 Taha Deab
+ * Licensed under the LobeHub Community License.
+ * See LICENSE file for more information.
+ */
+
+const Header = memo(() => {
+  const { t } = useTranslation('common');
+
+  const navigate = useNavigate();
+  return (
+    <ChatHeader
+      center={
+        <ChatHeader.Title
+          title={
+            <Flexbox align={'center'} gap={4} horizontal>
+              {t('userPanel.profile')}
+            </Flexbox>
+          }
+        />
+      }
+      onBackClick={() => navigate('/me')}
+      showBackButton
+      style={mobileHeaderSticky}
+    />
+  );
+});
+
+export default Header;
